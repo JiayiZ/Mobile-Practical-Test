@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.zhoujiayi.todolist.WelcomeActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="370dp"
+        android:layout_height="426dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:lineSpacingExtra="4sp"
+        android:text='This is an App for Flynn mobile practical test. The App provides the feature to track a list of tasks. Users can add, edit or delete a list of tasks they plan to finish in this App. The data being used in the App is all from JSON Placeholder. Thus, the data on the server will not change when you do an updating, deleting or creating. The App implements the function of adding, editing and deleting of tasks. Once you click the botton "Got It" at the bttom. You will be directed to a page listing a set of tasks. You can edit the tasks by clicking the text of each task. You can add new tasks by clicking the "+" on the upper right corner. You can delete the task by clicking the button "Done".'
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:text="Got It"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+</RelativeLayout>

@@ -19,10 +19,11 @@ import java.net.URL;
  * The callable is an object of a class implementing the FetchDataCallbackInterface
  * which defines the callback method fetchDataCallback
  */
-public class FetchData extends AsyncTask {
+public class FetchData extends AsyncTask <String, String, Void>{
     HttpURLConnection urlConnection;
     String url;
     FetchDataCallBackInterface callbackInterface;
+    String apiData;
     /**
      * Constructor
      * @param url
@@ -34,8 +35,8 @@ public class FetchData extends AsyncTask {
     }
 
     @Override
-    protected Object doInBackground(Object[] args) {
-        Log.d("API DATA:","Start!");
+    protected Void doInBackground(String... args) {
+        //Log.d("API DATA:","Start!");
         StringBuilder result = new StringBuilder();
         try {
             URL url = new URL(this.url);
@@ -45,20 +46,23 @@ public class FetchData extends AsyncTask {
             String line;
             while ((line = reader.readLine()) != null) {
                 result.append(line);
-                Log.d("API DATA:","I am getting the data!");
+                //Log.d("API DATA:",line);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             urlConnection.disconnect();
         }
-        return result.toString();
+        apiData = result.toString();
+        //return result.toString();
+        return null;
     }
-
-    protected void onPostExecute(String result) {
-        super.onPostExecute(result);
-// pass the result to the callback function
-        this.callbackInterface.fetchDataCallback(result);
+    @Override
+    protected void onPostExecute(Void v) {
+        //super.onPostExecute(result);
+        // pass the result to the callback function
+        this.callbackInterface.fetchDataCallback(apiData);
+        //Log.d("onPostExecute","I am here.");
     }
 
 }
